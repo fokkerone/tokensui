@@ -2,7 +2,7 @@ import { ToggleGroup, ToggleGroupItem } from '@/registry/default/ui/base-toggle-
 
 export default function TabsDemo() {
   return (
-    <ToggleGroup toggleMultiple={true} defaultValue={['1W', '1M']}>
+    <ToggleGroup multiple={true} defaultValue={['1W', '1M']}>
       <ToggleGroupItem value="1D">1D</ToggleGroupItem>
       <ToggleGroupItem value="1W">1W</ToggleGroupItem>
       <ToggleGroupItem value="1M">1M</ToggleGroupItem>

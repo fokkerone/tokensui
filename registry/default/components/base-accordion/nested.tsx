@@ -8,7 +8,7 @@ import {
 
 export default function Component() {
   return (
-    <Accordion variant="outline" openMultiple={false} className="w-full lg:w-[75%]">
+    <Accordion variant="outline" multiple={false} className="w-full lg:w-[75%]">
       <AccordionItem value="reui-1">
         <AccordionHeader>
           <AccordionTrigger>What is ReUI?</AccordionTrigger>
@@ -21,7 +21,7 @@ export default function Component() {
         </AccordionHeader>
         <AccordionPanel>
           Developers looking to save time with pre-built CRUD solutions.
-          <Accordion variant="outline" openMultiple={false} className="mt-4">
+          <Accordion variant="outline" multiple={false} className="mt-4">
             <AccordionItem value="nested-1">
               <AccordionHeader>
                 <AccordionTrigger>How does ReUI save time?</AccordionTrigger>
@@ -47,7 +47,7 @@ export default function Component() {
         </AccordionHeader>
         <AccordionPanel>
           ReUI simplifies development with plug-and-play CRUDs.
-          <Accordion variant="outline" openMultiple={false} className="mt-4">
+          <Accordion variant="outline" multiple={false} className="mt-4">
             <AccordionItem value="nested-3">
               <AccordionHeader>
                 <AccordionTrigger>What types of CRUDs are included?</AccordionTrigger>

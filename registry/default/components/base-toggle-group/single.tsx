@@ -6,7 +6,7 @@ export default function TabsDemo() {
 
   return (
     <ToggleGroup
-      toggleMultiple={false}
+      multiple={false}
       value={[value]}
       onValueChange={(newValue) => {
         if (newValue) setValue(newValue[0]);

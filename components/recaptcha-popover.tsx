@@ -1,7 +1,7 @@
 import { Alert, AlertIcon, AlertTitle } from '@/registry/default/ui/alert';
 import { Button } from '@/registry/default/ui/button';
-import * as Popover from '@radix-ui/react-popover';
 import { RiErrorWarningFill } from '@remixicon/react';
+import { Popover } from 'radix-ui';
 import { toast } from 'sonner';
 import { useRecaptchaV2 } from '@/hooks/use-recaptcha-v2';
 

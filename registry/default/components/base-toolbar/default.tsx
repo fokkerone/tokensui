@@ -32,7 +32,7 @@ export default function ToolbarDemo() {
       {/* Main Toolbar */}
       <Toolbar>
         {/* Text Formatting */}
-        <ToggleGroup toggleMultiple={true}>
+        <ToggleGroup multiple={true}>
           <ToolbarButton
             size="icon"
             render={
@@ -62,7 +62,7 @@ export default function ToolbarDemo() {
         <ToolbarSeparator />
 
         {/* Text Alignment */}
-        <ToggleGroup toggleMultiple={false}>
+        <ToggleGroup multiple={false}>
           <ToolbarButton
             size="icon"
             render={

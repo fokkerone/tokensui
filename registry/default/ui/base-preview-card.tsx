@@ -5,7 +5,7 @@ import { cn } from '@/registry/default/lib/utils';
 import { PreviewCard as BasePreviewCard } from '@base-ui-components/react';
 
 function PreviewCard({ ...props }: React.ComponentProps<typeof BasePreviewCard.Root>) {
-  return <BasePreviewCard.Root delay={0} closeDelay={0} data-slot="preview-card" {...props} />;
+  return <BasePreviewCard.Root data-slot="preview-card" {...props} />;
 }
 
 function PreviewCardTrigger({ ...props }: React.ComponentProps<typeof BasePreviewCard.Trigger>) {

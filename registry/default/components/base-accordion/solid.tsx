@@ -8,7 +8,7 @@ import {
 
 export default function Component() {
   return (
-    <Accordion variant="solid" openMultiple={false} className="w-full lg:w-[75%]">
+    <Accordion variant="solid" multiple={false} className="w-full lg:w-[75%]">
       <AccordionItem value="reui-1">
         <AccordionHeader>
           <AccordionTrigger>What is ReUI?</AccordionTrigger>

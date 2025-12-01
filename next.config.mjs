@@ -3,11 +3,16 @@ import { createContentlayerPlugin } from 'next-contentlayer2';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
-  experimental: {
-    turbo: {
-      rules: {
-        '*.mdx': ['contentlayer/process-mdx'],
-      },
+  // experimental: {
+  //   turbo: {
+  //     rules: {
+  //       '*.mdx': ['contentlayer/process-mdx'],
+  //     },
+  //   },
+  // },
+  turbopack: {
+    rules: {
+      '*.mdx': ['contentlayer/process-mdx'],
     },
   },
   // Server configuration
