@@ -7,9 +7,9 @@ export function SiteHeroTemplates() {
 
           <div className="text-center text-xl max-w-4xl text-muted-foreground">
             Save time and ship faster with premium and free <strong className="text-foreground">shadcn/ui</strong>{' '}
-            compatible templates and starter kits crafted by the <strong className="text-foreground">ReUI</strong> core
-            team with best practices in mind. Perfect for MVPs and production-ready apps that require modern design and
-            smooth performance.
+            compatible templates and starter kits crafted by the <strong className="text-foreground">FokiUI</strong>{' '}
+            core team with best practices in mind. Perfect for MVPs and production-ready apps that require modern design
+            and smooth performance.
           </div>
         </div>
       </div>
