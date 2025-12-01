@@ -105,7 +105,6 @@ export default async function DocPage({ params }: DocPageProps) {
             )}
           </div>
         </div>
-
         {doc.links ? (
           <div className="flex items-center space-x-2 pt-3">
             {/* Render documentation links */}
@@ -130,6 +129,7 @@ export default async function DocPage({ params }: DocPageProps) {
         <div className="pb-12 pt-8">
           <Mdx code={doc.body.code} componentExamples={examples} componentCode={code} />
         </div>
+
         <DocsPager doc={doc} />
       </div>
       <div className="hidden text-sm xl:block">

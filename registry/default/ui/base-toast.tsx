@@ -2,7 +2,7 @@
 
 import { toastManager, useToast } from '@/registry/default/hooks/use-toast';
 import { cn } from '@/registry/default/lib/utils';
-import { buttonVariants } from '@/registry/default/ui/base-button';
+import { buttonVariants } from '@/registry/default/ui/button';
 import { Toast } from '@base-ui-components/react/toast';
 import { cva } from 'class-variance-authority';
 import { CircleAlert, CircleCheck, Info, Loader, TriangleAlert, X } from 'lucide-react';

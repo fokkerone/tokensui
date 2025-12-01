@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BreadcrumbPage } from '@/registry/default/ui/base-breadcrumb';
+//import { BreadcrumbPage } from '@/registry/default/ui/base-breadcrumb';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -29,6 +29,7 @@ export default async function Page({ params }: PageProps) {
     <div className="container-fixed space-y-6 px-0 lg:px-6 transition-all duration-300">
       <div className="flex items-center gap-1.5 min-h-8 mb-2.5">
         <BlocksNavMobileToggle />
+
         <BlocksNavToggle />
         <Breadcrumb>
           <BreadcrumbList>
@@ -38,11 +39,10 @@ export default async function Page({ params }: PageProps) {
             {primaryCategory && (
               <>
                 <BreadcrumbSeparator />
-                <BreadcrumbPage>
-                  <BreadcrumbLink asChild>
-                    <Link href={`/blocks/${primaryCategory.slug}`}>{primaryCategory.title}</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbPage>
+
+                <BreadcrumbLink asChild>
+                  <Link href={`/blocks/${primaryCategory.slug}`}>{primaryCategory.title}</Link>
+                </BreadcrumbLink>
               </>
             )}
           </BreadcrumbList>

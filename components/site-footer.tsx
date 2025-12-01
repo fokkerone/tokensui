@@ -36,7 +36,7 @@ export function SiteFooter() {
             <span className="text-muted-foreground">A project by</span>{' '}
             <Link
               className="font-medium text-foreground hover:underline hover:underline-offset-2"
-              href="#"
+              href="/"
               target="_blank"
               onClick={() => handleLinkClick('keenthemes')}
             >
@@ -46,7 +46,7 @@ export function SiteFooter() {
           <Separator orientation="vertical" className="h-4" />
           <Link
             className="font-medium text-foreground hover:underline hover:underline-offset-2"
-            href="https://#"
+            href="#"
             target="_blank"
             onClick={() => handleLinkClick('hireus')}
           >

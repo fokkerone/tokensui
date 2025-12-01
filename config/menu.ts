@@ -22,17 +22,14 @@ export interface MenuItem {
   badge?: string;
   new?: boolean;
 }
-
 export interface MenuSection {
   title: string;
   items: MenuItem[];
 }
-
 export interface MenuConfig {
   sidebar: MenuSection[];
   header?: MenuItem[];
 }
-
 export const menuConfig: MenuConfig = {
   sidebar: [
     {
