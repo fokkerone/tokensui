@@ -28,7 +28,7 @@ export function SiteFooter() {
       >
         <div className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
           &copy;
-          {new Date().getFullYear()} ReUI. All rights reserved.
+          {new Date().getFullYear()} Token UI. All rights reserved.
         </div>
 
         <div className="flex items-center gap-2.5 text-balance text-sm leading-loose">
@@ -36,21 +36,21 @@ export function SiteFooter() {
             <span className="text-muted-foreground">A project by</span>{' '}
             <Link
               className="font-medium text-foreground hover:underline hover:underline-offset-2"
-              href="https://keenthemes.com"
+              href="#"
               target="_blank"
               onClick={() => handleLinkClick('keenthemes')}
             >
-              Keenthemes
+              Fokker Chartier
             </Link>
           </div>
           <Separator orientation="vertical" className="h-4" />
           <Link
             className="font-medium text-foreground hover:underline hover:underline-offset-2"
-            href="https://keenthemes.studio"
+            href="https://#"
             target="_blank"
             onClick={() => handleLinkClick('hireus')}
           >
-            Hire Us
+            Hire Me
           </Link>
         </div>
       </div>
