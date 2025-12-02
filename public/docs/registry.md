@@ -1,20 +1,20 @@
 ---
-title: ReUI Registry
-description: Learn how to use the ReUI Registry with shadcn/ui.
+title: Token UI Registry
+description: Learn how to use the Token UI Registry with shadcn/ui.
 ---
 
-The ReUI Registry gives you instant access to production-ready components.
+The Registry gives you instant access to production-ready components.
 Add it once, then pull in flexible, composable blocks by name—no locked templates,
 just scalable pieces you can tailor to your project.
 
 ## Add registry
 
-Add the ReUI registry namespace to your `components.json`:
+Add the ToUI registry namespace to your `components.json`:
 
 ```json
 {
   "registries": {
-    "@reui": "https://reui.io/r/{name}.json"
+    "@toui": "https://toui.dev/r/{name}.json"
   }
 }
 ```
@@ -23,16 +23,16 @@ For more info, Learn more about registry config from Shadcn UI docs [here](https
 
 ## Usage
 
-Install blocks via the shadcn CLI using the `@reui/{name}` syntax.
+Install blocks via the shadcn CLI using the `@toui/{name}` syntax.
 
 ```bash
-pnpm dlx shadcn@latest add @reui/statistic-card-1
+pnpm dlx shadcn@latest add @toui/statistic-card-1
 ```
 
-Install components via the shadcn CLI using the `@reui/{name}` syntax.
+Install components via the shadcn CLI using the `@toui/{name}` syntax.
 
 ```bash
-pnpm dlx shadcn@latest add @reui/alert
+pnpm dlx shadcn@latest add @toui/alert
 ```
 
 Each block and component has CLI commands to copy and paste into your project.

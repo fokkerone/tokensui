@@ -18,7 +18,7 @@ function extractAllSidebarItems(items: SidebarNavItem[] = []): SidebarNavItem[] 
 }
 
 function toAbsolute(urlPath: string): string {
-  return urlPath.startsWith('http') ? urlPath : `https://reui.io${urlPath}`;
+  return urlPath.startsWith('http') ? urlPath : `https://toui.dev${urlPath}`;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

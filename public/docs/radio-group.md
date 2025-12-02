@@ -6,12 +6,12 @@ component: true
 
 ## Installation
 
-CLI
-Manual
+  CLI
+  Manual
 
-### 1.
+### 1. 
 
-### 2. Install ReUI
+### 2. Install Token UI
 
 Refer to the [Installation Guide](/docs/installation) for detailed instructions on setting up ReUI dependencies in your project.
 

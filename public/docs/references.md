@@ -1,6 +1,6 @@
 ---
 title: References
-description: ReUI is proudly powered using following open source projects.
+description: The Blazing Open-Source Stack for Token UI
 ---
 
 ## Credits

@@ -1,0 +1,24 @@
+{
+  "category": {
+    "primary": "marketing",
+    "secondary": "hero",
+    "title": "Hero",
+    "cacheKey": "marketing.hero"
+  },
+  "blocks": [
+    {
+      "slug": "hero-1",
+      "name": "hero-1",
+      "filename": "hero-1.tsx",
+      "code": "const Hero1 = () => {\n  return <div>Hero Block 1</div>;\n};\n\nexport default Hero1;\n",
+      "highlightedCode": "<pre class=\"shiki github-dark-default\" style=\"background-color:#0d1117;color:#e6edf3\" tabindex=\"0\"><code data-line-numbers=\"\"><span class=\"line\"><span style=\"color:#FF7B72\">const</span><span style=\"color:#D2A8FF\"> Hero1</span><span style=\"color:#FF7B72\"> =</span><span style=\"color:#E6EDF3\"> () </span><span style=\"color:#FF7B72\">=></span><span style=\"color:#E6EDF3\"> {</span></span>\n<span class=\"line\"><span style=\"color:#FF7B72\">  return</span><span style=\"color:#E6EDF3\"> &#x3C;</span><span style=\"color:#7EE787\">div</span><span style=\"color:#E6EDF3\">>Hero Block 1&#x3C;/</span><span style=\"color:#7EE787\">div</span><span style=\"color:#E6EDF3\">>;</span></span>\n<span class=\"line\"><span style=\"color:#E6EDF3\">};</span></span>\n<span class=\"line\"></span>\n<span class=\"line\"><span style=\"color:#FF7B72\">export</span><span style=\"color:#FF7B72\"> default</span><span style=\"color:#E6EDF3\"> Hero1;</span></span>\n<span class=\"line\"></span></code></pre>",
+      "path": "marketing/hero/hero-1",
+      "published": true,
+      "new": false,
+      "previewHeight": 500,
+      "relativePath": "marketing/hero/hero-1.tsx"
+    }
+  ],
+  "total": 1,
+  "generatedAt": "2025-12-02T18:12:41.645Z"
+}

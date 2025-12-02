@@ -31,9 +31,17 @@
       "title": "Area Charts",
       "totalBlocks": 5,
       "filename": "charts.area-charts.json"
+    },
+    {
+      "cacheKey": "marketing.hero",
+      "primary": "marketing",
+      "secondary": "hero",
+      "title": "Hero",
+      "totalBlocks": 1,
+      "filename": "marketing.hero.json"
     }
   ],
-  "totalCategories": 4,
-  "totalBlocks": 30,
-  "generatedAt": "2025-10-20T10:56:06.047Z"
+  "totalCategories": 5,
+  "totalBlocks": 31,
+  "generatedAt": "2025-12-02T18:12:41.646Z"
 }

@@ -521,13 +521,13 @@ export const sitemapConfig: SitemapConfig = {
     {
       title: 'Github',
       icon: 'github',
-      href: 'https://github.com/keenthemes/reui',
+      href: '#github',
       description: 'A high-quality React github component for building user interfaces.',
     },
     {
       title: 'X',
       icon: 'twitter',
-      href: 'https://x.com/reui_io',
+      href: '#twitter',
       description: 'A high-quality React x component for building user interfaces.',
     },
   ],

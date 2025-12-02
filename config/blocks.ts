@@ -485,13 +485,24 @@ export const blocksConfig: BlocksConfig = [
   {
     title: 'Marketing',
     slug: 'marketing',
-    published: false,
+    published: true,
     sub: [
       {
         title: 'Hero',
         slug: 'hero',
-        published: false,
-        blocks: [],
+        published: true,
+        new: true,
+        description: `
+          A collection of free modern hero sections designed to captivate visitors and drive conversions. Each hero block features unique layouts, compelling visuals, and clear calls-to-action. 
+          Perfect for landing pages, homepages, and promotional campaigns.
+        `,
+        blocks: [
+          {
+            slug: 'hero-1',
+            previewHeight: 500,
+            published: true,
+          },
+        ],
       },
       {
         title: 'Pricing Tables',
