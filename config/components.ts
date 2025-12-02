@@ -21,12 +21,8 @@ export const componentsConfig: DocsConfig = {
       href: '/docs',
     },
     {
-      title: 'Changelog',
-      href: '/docs/changelog',
-    },
-    {
-      title: 'Built with ReUI',
-      href: '/built-with-reui',
+      title: 'Examples',
+      href: '/examples',
     },
   ],
   sidebarNav: [
@@ -52,6 +48,10 @@ export const componentsConfig: DocsConfig = {
           title: 'Dark mode',
           href: '/docs/dark-mode',
           items: [],
+        },
+        {
+          title: 'Changelog',
+          href: '/docs/changelog',
         },
         {
           title: 'RTL',
