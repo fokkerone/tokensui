@@ -1,47 +1,44 @@
-import { useEffect, useState } from 'react';
-//import Image from 'next/image';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Button } from '@/registry/default/ui/button';
 import { GithubButton } from '@/registry/default/ui/github-button';
-import { siteConfig } from '@/config/site';
+import { useTheme } from 'next-themes';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 import { CommandMenu } from '@/components/command-menu';
-import { Icons } from '@/components/icons';
 import { MainNav } from '@/components/main-nav';
 import { MobileNav } from '@/components/mobile-nav';
-import { ModeSwitcher } from '@/components/mode-switcher';
+import { ThemeToggleButton, useThemeTransition } from './ui/theme-toggle';
 
 // Custom hook to fetch GitHub stars
-function useGithubStars(repo = 'keenthemes/reui') {
-  const [stars, setStars] = useState<number>(siteConfig.githubStars);
-
-  useEffect(() => {
-    const fetchStars = async () => {
-      try {
-        const response = await fetch(`https://api.github.com/repos/${repo}`);
-        if (response.ok) {
-          const data = await response.json();
-          if (data?.stargazers_count) {
-            console.log('GitHub stars fetched:', data.stargazers_count);
-            setStars(data.stargazers_count);
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching GitHub stars:', error);
-      }
-    };
-
-    fetchStars();
-  }, [repo]);
-
-  return stars;
-}
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const githubStars = useGithubStars('keenthemes/reui');
+  const { setTheme } = useTheme();
+  const [settings, updateSettings] = useState({ mode: 'light', theme: { styles: { light: {}, dark: {} } } });
+  const { startTransition } = useThemeTransition();
+
+  const handleThemeToggle = useCallback(() => {
+    const newMode: string = settings.mode === 'dark' ? 'light' : 'dark';
+
+    startTransition(() => {
+      const updatedSettings = {
+        ...settings,
+        mode: newMode,
+        theme: {
+          ...settings.theme,
+          styles: {
+            light: settings.theme.styles?.light || {},
+            dark: settings.theme.styles?.dark || {},
+          },
+        },
+      };
+      updateSettings(updatedSettings);
+      setTheme(newMode);
+    });
+  }, [settings, updateSettings, setTheme, startTransition]);
+
+  const currentTheme = settings.mode === 'system' ? 'light' : (settings.mode as 'light' | 'dark');
 
   const handleSocialClick = (platform: string) => {
     trackEvent({
@@ -55,7 +52,7 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60 dark:border-border">
+    <header className="sticky top-0 z-50 w-full  bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60 dark:border-border">
       <div
         className={cn(
           'flex h-16 items-center justify-between gap-4',
@@ -65,8 +62,8 @@ export function SiteHeader() {
         <MobileNav />
 
         <div className="hidden lg:flex items-center gap-3.5">
-          <Link href="/" className="mr-10 flex items-center gap-2">
-            Fokker makes Money
+          <Link href="/" className="mr-10 font-extrabold flex items-center gap-2 text-sm">
+            TO/UI
           </Link>
           <MainNav />
         </div>
@@ -77,28 +74,7 @@ export function SiteHeader() {
           </div>
 
           <nav className="flex items-center gap-1">
-            <GithubButton
-              key={`github-${githubStars}`}
-              variant="outline"
-              targetStars={githubStars}
-              initialStars={0}
-              separator={true}
-              fixedWidth={true}
-              className="h-8 px-2.5"
-              repoUrl="https://github.com/keenthemes/reui"
-            />
-            <Button variant="ghost" mode="icon" size="sm" className="ms-1.5 size-8 text-foreground ">
-              <Link
-                href={siteConfig.links.twitter}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => handleSocialClick('twitter')}
-              >
-                <Icons.twitter />
-                <span className="sr-only">X</span>
-              </Link>
-            </Button>
-            <ModeSwitcher />
+            <ThemeToggleButton theme={currentTheme} onClick={handleThemeToggle} variant="polygon" start="center" />
           </nav>
         </div>
       </div>

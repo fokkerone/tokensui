@@ -87,8 +87,8 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: 'reui',
-      url: 'https://reui.io',
+      name: 'TUI',
+      url: 'https://TUI.io',
     },
   ],
   creator: '@reui_io',

@@ -1,6 +1,6 @@
 export const siteConfig = {
   version: '1.0.27',
-  name: 'ReUI',
+  name: 'toui',
   url: 'https://reui.io',
   ogImage: 'https://reui.io/og.png',
   githubStars: 1164,
