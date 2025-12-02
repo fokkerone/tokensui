@@ -9,7 +9,6 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/registry/defaul
 import { LoaderCircleIcon, Minus, Plus } from 'lucide-react';
 import { componentsConfig } from '@/config/components';
 import { getSlug } from '@/lib/helpers';
-import SiteHero from '@/components/site-hero';
 
 export default function Page() {
   const components = componentsConfig.sidebarNav[1];

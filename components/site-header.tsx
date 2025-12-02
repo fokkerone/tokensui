@@ -1,13 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GithubButton } from '@/registry/default/ui/github-button';
 import { useTheme } from 'next-themes';
-import { trackEvent } from '@/lib/analytics';
+//import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 import { CommandMenu } from '@/components/command-menu';
 import { MainNav } from '@/components/main-nav';
-import { MobileNav } from '@/components/mobile-nav';
+//import { MobileNav } from '@/components/mobile-nav';
 import { ThemeToggleButton, useThemeTransition } from './ui/theme-toggle';
 
 // Custom hook to fetch GitHub stars
