@@ -5,7 +5,7 @@ import { componentsConfig } from '@/config/components';
 import SiteHero from '@/components/site-hero';
 
 export default function Page() {
-  const components = componentsConfig.sidebarNav[1];
+  // const components = componentsConfig.sidebarNav[1];
 
   // const highlightedComponents =
   //   components.items
@@ -26,7 +26,7 @@ export default function Page() {
   //     .filter((component) => component.highlight!.examples?.length > 0) || [];
 
   // State to track the currently open collapsible (null if none)
-  const [openComponent, setOpenComponent] = React.useState<string | null>(null);
+  // const [openComponent, setOpenComponent] = React.useState<string | null>(null);
 
   // Handler to toggle a specific collapsible
   // const handleOpenChange = (title: string) => (isOpen: boolean) => {

@@ -34,6 +34,12 @@ async function getDocFromParams({ params }: DocPageProps) {
   return doc;
 }
 
+export async function generateStaticParams(): Promise<DocPageProps['params'][]> {
+  return allDocs.map((doc) => ({
+    slug: doc.slugAsParams.replace(/\(.*?\)\//g, '').split('/').filter(Boolean),
+  }));
+}
+
 export async function generateMetadata({ params }: DocPageProps): Promise<Metadata> {
   const doc = await getDocFromParams({ params });
 
