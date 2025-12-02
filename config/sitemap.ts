@@ -10,12 +10,13 @@ export const sitemapConfig: SitemapConfig = {
   mainNav: [
     {
       title: 'Components',
-      href: '/',
+      href: '/ui',
       description:
         'Browse and explore the complete collection of ReUI components with live examples and code snippets.',
     },
+
     {
-      title: 'UI Blocks',
+      title: 'Blocks',
       href: '/blocks',
       description: 'Pre-built UI blocks and page templates that showcase ReUI components in real-world layouts.',
     },
@@ -24,14 +25,10 @@ export const sitemapConfig: SitemapConfig = {
       href: '/docs',
       description: 'Comprehensive documentation covering installation, theming, and advanced usage patterns.',
     },
+
     {
-      title: 'Changelog',
-      href: '/docs/changelog',
-      description: 'Track the latest updates, new features, and breaking changes in ReUI releases.',
-    },
-    {
-      title: 'Pages',
-      href: '/built-with-reui',
+      title: 'Examples',
+      href: '/examples',
       description: 'Discover applications and websites built using ReUI components for inspiration.',
     },
   ],

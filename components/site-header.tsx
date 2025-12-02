@@ -33,23 +33,13 @@ export function SiteHeader() {
           },
         },
       };
+      console.log('Updating theme settings to:', updatedSettings);
       updateSettings(updatedSettings);
       setTheme(newMode);
     });
   }, [settings, updateSettings, setTheme, startTransition]);
 
   const currentTheme = settings.mode === 'system' ? 'light' : (settings.mode as 'light' | 'dark');
-
-  const handleSocialClick = (platform: string) => {
-    trackEvent({
-      name: `site_header_${platform}_link_click`,
-      properties: {
-        platform,
-        category: 'engagement',
-        label: `Header ${platform} Click`,
-      },
-    });
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full  bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60 dark:border-border">
@@ -59,7 +49,7 @@ export function SiteHeader() {
           pathname.includes('blocks') ? 'container-fluid' : 'container',
         )}
       >
-        <MobileNav />
+        {/* <MobileNav /> */}
 
         <div className="hidden lg:flex items-center gap-3.5">
           <Link href="/" className="mr-10 font-extrabold flex items-center gap-2 text-sm">

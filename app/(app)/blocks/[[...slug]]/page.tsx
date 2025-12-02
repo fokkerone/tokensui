@@ -39,7 +39,6 @@ export default async function Page({ params }: PageProps) {
             {primaryCategory && (
               <>
                 <BreadcrumbSeparator />
-
                 <BreadcrumbLink asChild>
                   <Link href={`/blocks/${primaryCategory.slug}`}>{primaryCategory.title}</Link>
                 </BreadcrumbLink>

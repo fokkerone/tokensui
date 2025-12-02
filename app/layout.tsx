@@ -87,11 +87,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: 'TUI',
-      url: 'https://TUI.io',
+      name: 'Token UI',
+      url: 'https://toui.dev',
     },
   ],
-  creator: '@reui_io',
+  creator: '@toui.dev',
   openGraph: {
     type: 'website',
     locale: 'en_US',

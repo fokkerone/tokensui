@@ -1,6 +1,6 @@
 ---
 title: MCP
-description: Learn how to use the shadcn/ui MCP(Model Context Protocol) with ReUI.
+description: Learn how to use the shadcn/ui MCP(Model Context Protocol) with Token UI.
 ---
 
 MCP is an open protocol that standardizes how applications provide context to LLMs.
@@ -17,9 +17,9 @@ Select your MCP client as prompted, then enable the MCP server in your client to
 
 ## Usage
 
-You can now ask your IDE to use any ReUI component. Here are some prompt examples:
+You can now ask your IDE to use any Token UI component. Here are some prompt examples:
 
-- Add Statistic Card block from ReUI registry.
-- Add Base UI Autocomplete Component ReUI registry.
-- Add Base UI Phone Input n Component ReUI registry.
-- Build me a User Management CRUD using Data Grid and Forms from ReUI registry.
+- Add Statistic Card block from Token UI registry.
+- Add Base UI Autocomplete Component Token UI registry.
+- Add Base UI Phone Input n Component Token UI registry.
+- Build me a User Management CRUD using Data Grid and Forms from Token UI registry.

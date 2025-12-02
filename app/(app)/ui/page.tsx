@@ -42,9 +42,7 @@ export default function Page() {
 
   return (
     <div className="container">
-      <SiteHero />
-      Homepage
-      {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7.5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7.5">
         {highlightedComponents.map((component) => {
           const isOpen = openComponent === component.title;
           return (
@@ -139,7 +137,7 @@ export default function Page() {
             </div>
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 }
