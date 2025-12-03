@@ -31,7 +31,8 @@ export interface SvgTextProps {
    * The element type to render for the container
    * @default "div"
    */
-  as?: ElementType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  as?: any;
 }
 
 /**

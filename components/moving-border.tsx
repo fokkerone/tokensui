@@ -14,13 +14,14 @@ export function MovingLabel({
 }: {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: React.ElementType; // Updated type here
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  as?: any;
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
-  className?: string;
-  [key: string]: unknown;
-}) {
+  className?: string | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+} & Record<string, any>) {
   return (
     <Component
       className={cn('bg-transparent relative text-xl h-9 p-[1px] overflow-hidden', containerClassName)}

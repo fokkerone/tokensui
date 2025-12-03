@@ -139,6 +139,7 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
   const driftRef = useRef<Float32Array | null>(null);
   const startPositionsRef = useRef<Float32Array | null>(null);
   const animationProgressRef = useRef(0);
+  const transitionProgressRef = useRef(0); // Smooth transition after fly-in
   const tempObject = useMemo(() => new THREE.Object3D(), []);
   const tempColor = useMemo(() => new THREE.Color(), []);
 
@@ -245,13 +246,21 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
     const startPositions = startPositionsRef.current;
     const time = state.clock.elapsedTime;
 
-    // Animation progress for initial fly-in (0 to 1 over 3 seconds)
+    // Animation progress for initial fly-in (0 to 1 over 9 seconds)
     if (animationProgressRef.current < 1) {
       animationProgressRef.current = Math.min(1, time / 9);
     }
     const progress = animationProgressRef.current;
-    // Easing function for smooth fly-in
+
+    // Smooth transition period after fly-in (0 to 1 over 3 seconds after fly-in completes)
+    if (progress >= 1 && transitionProgressRef.current < 1) {
+      transitionProgressRef.current = Math.min(1, (time - 9) / 3);
+    }
+    const transitionEase = transitionProgressRef.current;
+
+    // Easing functions
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    const easeInOutQuad = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 
     // Mouse position in 3D space (scaled for massive animation)
     const mouseX = mousePosition.x * 55;
@@ -259,12 +268,15 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
     const mouseZ = 0;
 
     // Physics parameters - EXPLOSIVE MAGNETISM with random delayed return
+    // Gradually ramp up during transition period for smooth activation
+    const transitionMultiplier = easeInOutQuad(transitionEase);
+
     const attractionRadius = 140; // ENORMOUS repulsion area - particles fly VERY far
-    const attractionStrength = 65.0; // MAXIMUM repulsion - explosive blast
+    const attractionStrength = 65.0 * transitionMultiplier; // Gradually increase from 0 to full
     const baseSpringStrength = 0.15; // EXTREMELY weak base return
-    const damping = 0.64; // Very low damping for extended flight time
+    const damping = 0.64 + (1 - transitionMultiplier) * 0.3; // Start with more damping (0.94), end with less (0.64)
     const driftSpeed = 0.0009; // Super fast drift
-    const driftStrength = 55.0; // INSANE drift for maximum wildness
+    const driftStrength = 55.0 * transitionMultiplier; // Gradually increase drift
 
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
