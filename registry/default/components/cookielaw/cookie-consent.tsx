@@ -80,7 +80,7 @@ export function CookieConsent({
             </p>
           </div>
           <div className="grid grid-cols-2 items-center gap-2 p-3 sm:p-4 sm:py-5 border-t border-border dark:bg-background/20">
-            <Button onClick={accept} variant="default" className="w-full">
+            <Button onClick={accept} variant="primary" className="w-full">
               Accept
             </Button>
             <Button onClick={decline} variant="outline" className="w-full">
@@ -144,7 +144,7 @@ export function CookieConsent({
               We use cookies to enhance your browsing experience.
             </p>
             <div className="grid grid-cols-2 items-center gap-2 mt-3">
-              <Button onClick={accept} variant="default" className="w-full">
+              <Button onClick={accept} variant="primary" className="w-full">
                 Accept
               </Button>
               <Button onClick={decline} variant="ghost" className="w-full">
