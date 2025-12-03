@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { CookieConsent } from '@/registry/default/components/cookielaw/cookie-consent';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SiteSubscribe } from '@/components/site-subscribe';
@@ -18,6 +19,11 @@ export default function AppLayout({ children }: AppLayoutProps) {
         <SiteHeader />
         <main className="flex-1">{children}</main>
         {pathname && !pathname.startsWith('/docs') && !pathname.startsWith('/blocks') && <SiteSubscribe />}
+        <CookieConsent
+          variant="default"
+          onAcceptCallback={() => console.log('Accepted')}
+          onDeclineCallback={() => console.log('Declined')}
+        />
         <SiteFooter />
       </div>
     </div>
