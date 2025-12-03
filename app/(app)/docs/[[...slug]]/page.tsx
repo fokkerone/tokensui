@@ -100,6 +100,7 @@ export default async function DocPage({ params }: DocPageProps) {
               </div>
               <h1 className={cn('text-3xl font-semibold tracking-tight text-foreground')}>{doc.title}</h1>
             </div>
+
             <DocsCopyPage
               page={doc.body.raw}
               url={doc.slug === '/docs' || doc.slug === '/docs/' ? '/docs/index' : doc.slug}

@@ -14,7 +14,7 @@ import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard';
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I’m looking at this ReUI documentation: https://reui.io${url}. Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`,
+    `I’m looking at this Token UI documentation: https://toui.dev${url}. Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`,
   )}`;
 }
 

@@ -55,6 +55,7 @@ export function CopyButton({ value, className, variant = 'ghost', event, ...prop
       }}
       {...props}
     >
+      sdsds
       <span className="sr-only">Copy</span>
       {hasCopied ? <Check className="size-4 text-white" /> : <Copy className="size-4" />}
     </Button>

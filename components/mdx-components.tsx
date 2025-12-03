@@ -40,8 +40,6 @@ const components = (componentExamples: ComponentExamples | undefined, componentC
       return null;
     }
 
-    console.log(`Wow: ${code}`);
-
     return <ComponentSource {...props} name={name} code={code.code} highlightedCode={code.highlightedCode} />;
   },
   PopoverInfo: ({
@@ -56,7 +54,7 @@ const components = (componentExamples: ComponentExamples | undefined, componentC
     return (
       <Popover>
         <PopoverTrigger className="inline-flex" asChild>
-          <CircleAlert className="size-3.5 text-muted-foreground/80 ms-[1px] mt-[-2px]" />
+          <CircleAlert className="size-3.5 text-muted-foreground/80 ms-px -mt-0.5" />
         </PopoverTrigger>
         <PopoverContent className={cn('text-wrap max-w-56 text-accent-foreground text-sm', width)} {...props}>
           {children}
