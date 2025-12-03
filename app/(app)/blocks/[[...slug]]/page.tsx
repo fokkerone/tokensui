@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 //import { BreadcrumbPage } from '@/registry/default/ui/base-breadcrumb';
 import {
@@ -14,6 +15,41 @@ import { BlocksNavToggle } from '@/components/blocks-nav-toggle';
 
 interface PageProps {
   params: Promise<{ slug?: string[] }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug || [];
+  const pathname = `/blocks/${slug.join('/')}`;
+
+  const primaryCategory = getPrimaryCategory(pathname);
+  const secondaryCategory = getSecondaryCategory(primaryCategory, pathname);
+
+  const title = secondaryCategory
+    ? `${secondaryCategory.title} - Blocks | toui.de`
+    : primaryCategory
+      ? `${primaryCategory.title} - Blocks | toui.dev`
+      : 'Blocks - toui';
+
+  const description =
+    secondaryCategory?.description ||
+    primaryCategory?.description ||
+    'Explore our collection of pre-built blocks and components ready to use in your projects.';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  };
 }
 
 export default async function Page({ params }: PageProps) {

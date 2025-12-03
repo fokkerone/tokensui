@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { cn } from '@/registry/default/lib/utils';
-import { Toaster as Sooner } from '@/registry/default/ui/sonner';
+import { Toaster } from '@/registry/default/ui/sonner';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { META_THEME_COLORS, siteConfig } from '@/config/site';
 import { QueryProvider } from '@/providers/query-provider';
@@ -152,7 +152,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <Suspense>
               <NuqsAdapter>{children}</NuqsAdapter>
               <Analytics />
-              <Sooner />
+              <Toaster />
             </Suspense>
           </QueryProvider>
         </ThemeProvider>

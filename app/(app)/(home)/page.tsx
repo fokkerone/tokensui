@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { componentsConfig } from '@/config/components';
 import SiteHero from '@/components/site-hero';
+import AntigravityScene from '@/components/antigravity-scene';
 
 export default function Page() {
   // const components = componentsConfig.sidebarNav[1];
@@ -34,9 +34,11 @@ export default function Page() {
   // };
 
   return (
-    <div className="container">
-      <SiteHero />
-      Homepage
+    <>
+      <AntigravityScene />
+      <div className="container relative z-10">
+        <SiteHero />
+        Homepage
       {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7.5">
         {highlightedComponents.map((component) => {
           const isOpen = openComponent === component.title;
@@ -133,6 +135,7 @@ export default function Page() {
           );
         })}
       </div> */}
-    </div>
+      </div>
+    </>
   );
 }
