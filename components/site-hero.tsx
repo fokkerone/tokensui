@@ -87,7 +87,7 @@ export default function SiteHero() {
           <MovingLabel
             borderRadius="1.75rem"
             duration={3500}
-            className="bg-card border border-mono/15 text-foreground inline-flex items-center gap-2.5 cursor-pointer"
+            className="bg-card border border-mono/15 text-foreground inline-flex items-center gap-2.5 cursor-pointer text-xl"
             containerClassName="w-[245px]"
             onClick={handleMovingLabelClick}
           >
@@ -95,16 +95,11 @@ export default function SiteHero() {
             <Zap className="size-4 text-muted-foreground" />
           </MovingLabel>
 
-          <h1 className="text-3xl lg:text-[48px] font-bold text-center">UI Library for React</h1>
-
-          <div className="text-center text-l max-w-2xl">
-            Open-source collection of UI components and animated effects built with <strong>React</strong>,{' '}
-            <strong>Typescript</strong>, <strong>Tailwind CSS</strong>, and <strong>Motion</strong>. Pairs beautifully
-            with <strong>shadcn/ui</strong>.
-          </div>
+          <h1 className="text-[5rem] font-bold text-center">UI/DX Quantum Leap</h1>
+          <h2 className="text-center text-3xl max-w-3xl">with nextgen DesignToken React UI library</h2>
 
           <div className="flex items-center gap-3.5 mb-4">
-            <Button asChild variant="mono" size="lg" className="text-nowrap px-4 rounded-lg gap-1.5">
+            <Button asChild variant="mono" size="lg" className="text-nowrap px-4 rounded-full gap-1.5">
               <Link href="/docs/installation" onClick={handleGetStartedClick}>
                 Get Started <span className="opacity-70">- It&apos;s free</span>
               </Link>
