@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3333",
-    "build": "contentlayer2 build &&next build",
+    "build": "contentlayer2 build && next build",
     "build:content": "contentlayer2 build",
     "start": "next start",
     "start:8090": "next start -p 8090",

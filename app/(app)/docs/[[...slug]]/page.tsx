@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { allDocs } from '@/.contentlayer/generated';
 import { cn } from '@/registry/default/lib/utils';
 import { Badge } from '@/registry/default/ui/badge';
-import { allDocs } from 'contentlayer/generated';
 import { ExternalLink } from 'lucide-react';
 import Balancer from 'react-wrap-balancer';
 import { siteConfig } from '@/config/site';
