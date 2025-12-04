@@ -1,4 +1,4 @@
-import { createContentlayerPlugin } from 'next-contentlayer2';
+import { withContentlayer } from 'next-contentlayer2';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -45,6 +45,6 @@ const nextConfig = {
   poweredByHeader: false,
 };
 
-const withContentlayer = createContentlayerPlugin({});
+//const withContentlayer = createContentlayerPlugin({});
 
 export default withContentlayer(nextConfig);

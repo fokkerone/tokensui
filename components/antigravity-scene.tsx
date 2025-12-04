@@ -385,7 +385,7 @@ export default function AntigravityScene() {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none">
+    <div className="absolute -z.20 inset-0 w-full h-full pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 80], fov: 70 }}
         gl={{ antialias: true, alpha: true }}

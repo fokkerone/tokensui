@@ -1,35 +1,31 @@
 'use client';
-import { ZoomHoverImage } from '@merch/components';
-import { useRef, useState, useMemo, useEffect, useLayoutEffect } from 'react';
-import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { ZoomHoverImage } from '@merch/components';
 import {
+  animate,
+  AnimatePresence,
+  easeInOut,
   motion,
-  useInView,
+  MotionValue,
   useAnimation,
+  useAnimationFrame,
+  useInView,
+  useMotionValue,
   useScroll,
   useTransform,
-  useAnimationFrame,
-  useMotionValue,
-  animate,
-  easeInOut,
-  AnimatePresence,
-  MotionValue,
 } from 'motion/react';
+import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
 
 type Size = {
   width?: number;
   height?: number;
 };
 
-export function InfiniteBoxCarousel({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function InfiniteBoxCarousel({ children }: { children?: React.ReactNode }) {
   const boxCount = 11;
-  const boxGap = 12;
-  const delayPerBox = 0.15;
+  const boxGap = 30;
+  const delayPerBox = 0.25;
 
   const responsive = {
     default: {
@@ -39,11 +35,11 @@ export function InfiniteBoxCarousel({
       boxCount: 3,
     },
     lg: {
-      boxCount: 4,
+      boxCount: 2.5,
     },
   };
   const totalDelay = 1100 * ((boxCount - 1) * delayPerBox + 1.5); // last box's delay + animation time
-  const containerClass = `flex gap-[12px] overflow-x-clip`;
+  const containerClass = `flex gap-[30px] overflow-x-clip px-12`;
   const ref = useRef<HTMLDivElement>(null);
   const [{ width, height }, setSize] = useState<Size>({
     width: undefined,
@@ -58,9 +54,7 @@ export function InfiniteBoxCarousel({
   });
   const [boxAmount, setBoxAmount] = useState<number>(4);
   const [BoxWidth, setBoxWidth] = useState<number>(0);
-  const [BoxInterval, setBoxInterval] = useState<null | ReturnType<
-    typeof setInterval
-  >>(null);
+  const [BoxInterval, setBoxInterval] = useState<null | ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
     if (width === undefined) return;
@@ -94,18 +88,11 @@ export function InfiniteBoxCarousel({
         start: BoxWidth * b,
         _m: useMotionValue(0),
       };
-    })
+    }),
   ).current;
 
   useEffect(() => {
-    console.log(
-      'Mainthreat',
-      boxes,
-      BoxWidth,
-      boxAmount,
-      'Interval',
-      BoxInterval
-    );
+    console.log('Mainthreat', boxes, BoxWidth, boxAmount, 'Interval', BoxInterval);
     let intervalID: null | ReturnType<typeof setInterval> = null;
 
     if (BoxInterval) {
@@ -231,31 +218,19 @@ const people = [
 const BoxContent = ({ id }) => {
   return (
     <div className="p-5 h-full bg-emerald-200">
-      <h1 className="text-3xl text-gray-800 block">
-        {people[Number(id)].name}
-      </h1>
-      <h2 className="text-2xl text-gray-700 block">
-        {people[Number(id)].profession}
-      </h2>
+      <h1 className="text-3xl text-gray-800 block">{people[Number(id)].name}</h1>
+      <h2 className="text-2xl text-gray-700 block">{people[Number(id)].profession}</h2>
     </div>
   );
 };
-const Box = ({
-  children,
-  x,
-  id,
-  _m,
-}: {
-  children: React.ReactNode;
-  x: MotionValue;
-}) => {
+const Box = ({ children, x, id, _m }: { children: React.ReactNode; x: MotionValue }) => {
   return (
     <motion.div
       key={id}
       style={{ x: _m }}
-      className="overflow-hidden basis-[calc(100%/1.5)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/4)] shrink-0 aspect-[3/4] bg-gray-200 rounded-2xl"
+      className="overflow-hidden basis-[calc(100%/1.5)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/2.5)] shrink-0 aspect-6/4 bg-slate-700 rounded-2xl"
     >
-      <BoxContent id={Number(id)} key={`id-${id}`} />
+      {/* <BoxContent id={Number(id)} key={`id-${id}`} /> */}
     </motion.div>
   );
 };
