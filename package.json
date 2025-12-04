@@ -73,6 +73,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "0.542.0",
     "markdown-wasm": "^1.2.0",
+    "mdx-bundler": "^10.1.1",
     "motion": "^12.23.25",
     "next": "16.0.7",
     "next-contentlayer2": "^0.5.8",
