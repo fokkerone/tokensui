@@ -95,7 +95,7 @@ export default function SiteHero() {
             <Zap className="size-4 text-muted-foreground" />
           </MovingLabel>
 
-          <h1 className="text-2xl lg:text-[48px] font-bold text-center">UI Library for React</h1>
+          <h1 className="text-3xl lg:text-[48px] font-bold text-center">UI Library for React</h1>
 
           <div className="text-center text-l max-w-2xl">
             Open-source collection of UI components and animated effects built with <strong>React</strong>,{' '}
