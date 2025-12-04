@@ -20,54 +20,7 @@ function createApertureLogoParticles(particleCount: number) {
   // SVG path data - exact logo shape
   const svgString = `<svg width="776" height="791" viewBox="0 0 776 791" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(-1309, -375)">
-      <g transform="matrix(-1,0,0,-1,2940.159635,3421.759912)">
-        <g transform="matrix(-0.283657,0,0,-1.060185,1986.566459,3586.496467)">
-          <path d="M3753.617,872.418L3968.203,772.975L3539.518,772.975L3753.617,872.418Z" fill="white"/>
-        </g>
-        <g transform="matrix(0.5,-0.866025,-0.866025,-0.5,272.516857,6573.584701)">
-          <path d="M3798.028,1010.792L3580.428,1387.687L3496.267,1241.917L3629.707,1010.792L3798.028,1010.792Z" fill="white"/>
-        </g>
-      </g>
-      <g transform="translate(928.787789, -1102.416541)">
-        <g transform="matrix(0.141828,0.245654,-0.918148,0.530093,1208.109042,762.040648)">
-          <path d="M3753.617,872.418L3968.203,772.975L3539.518,772.975L3753.617,872.418Z" fill="white"/>
-        </g>
-        <g transform="matrix(-1,0,0,1,4652.028137,752.907029)">
-          <path d="M3802.816,1002.499L3580.428,1387.687L3496.267,1241.917L3634.495,1002.499L3802.816,1002.499Z" fill="white"/>
-        </g>
-      </g>
-      <g transform="matrix(-0.5,0.866025,-0.866025,-0.5,3698.609035,1040.670676)">
-        <g transform="matrix(0.141828,0.245654,-0.918148,0.530093,1208.109042,762.040648)">
-          <path d="M3753.617,872.418L3968.203,772.975L3539.518,772.975L3753.617,872.418Z" fill="white"/>
-        </g>
-        <g transform="matrix(-1,0,0,1,4652.028137,752.907029)">
-          <path d="M3802.816,1002.499L3580.428,1387.687L3496.267,1241.917L3634.495,1002.499L3802.816,1002.499Z" fill="white"/>
-        </g>
-      </g>
-      <g transform="matrix(-1,0,0,-1,2466.761155,2642.583459)">
-        <g transform="matrix(0.141828,0.245654,-0.918148,0.530093,1208.109042,762.040648)">
-          <path d="M3753.617,872.418L3968.203,772.975L3539.518,772.975L3753.617,872.418Z" fill="white"/>
-        </g>
-        <g transform="matrix(-1,0,0,1,4652.028137,752.907029)">
-          <path d="M3802.816,1002.499L3580.428,1387.687L3496.267,1241.917L3634.495,1002.499L3802.816,1002.499Z" fill="white"/>
-        </g>
-      </g>
-      <g transform="matrix(-0.5,-0.866025,0.866025,-0.5,460.540474,2373.330294)">
-        <g transform="matrix(0.141828,0.245654,-0.918148,0.530093,1208.109042,762.040648)">
-          <path d="M3753.617,872.418L3968.203,772.975L3539.518,772.975L3753.617,872.418Z" fill="white"/>
-        </g>
-        <g transform="matrix(-1,0,0,1,4652.028137,752.907029)">
-          <path d="M3802.816,1002.499L3580.428,1387.687L3496.267,1241.917L3634.495,1002.499L3802.816,1002.499Z" fill="white"/>
-        </g>
-      </g>
-      <g transform="matrix(0.5,0.866025,-0.866025,0.5,2946.269668,-894.746835)">
-        <g transform="matrix(0.141828,0.245654,-0.918148,0.530093,1255.802617,803.432953)">
-          <path d="M3753.617,872.418L3968.203,772.975L3539.518,772.975L3753.617,872.418Z" fill="white"/>
-        </g>
-        <g transform="matrix(-1,0,0,1,4699.721712,794.299334)">
-          <path d="M3801.896,1004.093L3580.428,1387.687L3496.267,1241.917L3633.574,1004.093L3801.896,1004.093Z" fill="white"/>
-        </g>
-      </g>
+      
     </g>
   </svg>`;
 
@@ -144,7 +97,7 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
   const tempColor = useMemo(() => new THREE.Color(), []);
 
   const { count, originalPositions, colors } = useMemo(() => {
-    const particles = createApertureLogoParticles(9000);
+    const particles = createApertureLogoParticles(15000);
     const originalPos = new Float32Array(particles.length * 3);
     const colorsArray: THREE.Color[] = [];
 
@@ -271,8 +224,8 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
     // Gradually ramp up during transition period for smooth activation
     const transitionMultiplier = easeInOutQuad(transitionEase);
 
-    const attractionRadius = 140; // ENORMOUS repulsion area - particles fly VERY far
-    const attractionStrength = 65.0 * transitionMultiplier; // Gradually increase from 0 to full
+    const attractionRadius = 70; // ENORMOUS repulsion area - particles fly VERY far
+    const attractionStrength = 115.0 * transitionMultiplier; // Gradually increase from 0 to full
     const baseSpringStrength = 0.15; // EXTREMELY weak base return
     const damping = 0.64 + (1 - transitionMultiplier) * 0.3; // Start with more damping (0.94), end with less (0.64)
     const driftSpeed = 0.0009; // Super fast drift
@@ -343,7 +296,7 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
         // Add drift - extreme influence
         velocities[i3] += driftX * 0.18;
         velocities[i3 + 1] += driftY * 0.18;
-        velocities[i3 + 2] += driftZ * 0.28;
+        velocities[i3 + 2] += driftZ * 0.38;
 
         // Apply damping
         velocities[i3] *= damping;
@@ -362,19 +315,13 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
       // No rotation - keep particles flat to see logo clearly
       tempObject.rotation.set(0, 0, 0);
 
-      // Pulsing scale - wild breathing effect with individual particle timing - BIGGER PARTICLES
-      const pulseSpeed = 4.0; // Faster pulsing
-      const pulsePhase = i * 0.05; // More varied phases
+      // Pulsing scale - wild breathing effect with individual particle timing - CIRCLES
+      const pulseSpeed = 2.0; // Faster pulsing
+      const pulsePhase = i * 0.5; // More varied phases
       const pulseAmount = Math.sin(time * pulseSpeed + pulsePhase) * 0.5 + 1.0; // Oscillates between 0.5 and 1.5
-      const baseScaleX = 0.08; // Much bigger
-      const baseScaleY = 0.25; // Much longer
-      const baseScaleZ = 0.18; // Much bigger
+      const baseScale = 0.12; // Uniform scale for circular particles
 
-      tempObject.scale.set(
-        baseScaleX * pulseAmount,
-        baseScaleY * pulseAmount * 1.2, // Extra Y scaling for more dramatic effect
-        baseScaleZ * pulseAmount,
-      );
+      tempObject.scale.set(baseScale * pulseAmount, baseScale * pulseAmount, baseScale * pulseAmount);
 
       tempObject.updateMatrix();
       meshRef.current.setMatrixAt(i, tempObject.matrix);
@@ -387,7 +334,7 @@ function MagneticParticles({ mousePosition }: { mousePosition: { x: number; y: n
 
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
-      <cylinderGeometry args={[0.5, 0.5, 1, 8]} />
+      <sphereGeometry args={[0.65, 16, 16]} />
       <meshStandardMaterial transparent opacity={0.7} />
     </instancedMesh>
   );
@@ -414,7 +361,7 @@ function Scene({ mousePosition }: { mousePosition: { x: number; y: number } }) {
     <>
       <ambientLight intensity={0.8} />
       <pointLight position={[10, 10, 10]} intensity={0.5} />
-      <pointLight position={[-10, -10, -10]} intensity={0.3} color="#8b5cf6" />
+      <pointLight position={[-10, -10, -10]} intensity={0.93} color="#8b5cf6" />
       <MagneticParticles mousePosition={mousePosition} />
       <CameraRig mousePosition={mousePosition} />
     </>
@@ -438,7 +385,7 @@ export default function AntigravityScene() {
   }, []);
 
   return (
-    <div className="fixed inset-0 w-full h-full pointer-events-none -z-10">
+    <div className="absolute inset-0 w-full h-full pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 80], fov: 70 }}
         gl={{ antialias: true, alpha: true }}
