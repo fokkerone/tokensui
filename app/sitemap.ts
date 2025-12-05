@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   // Home page
-  entries.push({ url: 'https://reui.io' });
+  entries.push({ url: 'https://toui.dev' });
 
   // Main navigation links
   const main: MainNavItem[] = sitemapConfig.mainNav ?? [];
