@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { CommandMenu } from '@/components/command-menu';
 import { MainNav } from '@/components/main-nav';
-//import { MobileNav } from '@/components/mobile-nav';
+import { MobileNav } from '@/components/mobile-nav';
 import { ThemeToggleButton, useThemeTransition } from './ui/theme-toggle';
 
 // Custom hook to fetch GitHub stars
@@ -32,7 +32,6 @@ export function SiteHeader() {
           },
         },
       };
-      console.log('Updating theme settings to:', updatedSettings);
       updateSettings(updatedSettings);
       setTheme(newMode);
     });
@@ -48,7 +47,7 @@ export function SiteHeader() {
           pathname.includes('blocks') ? 'container-fluid' : 'container',
         )}
       >
-        {/* <MobileNav /> */}
+        <MobileNav />
 
         <div className="hidden lg:flex items-center gap-3.5">
           <Link href="/" className="mr-10 font-extrabold flex items-center gap-2 text-sm">

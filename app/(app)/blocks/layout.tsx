@@ -15,6 +15,7 @@ export default function BlocksLayout({ children }: { children: React.ReactNode }
         </div>
         <main className="flex-1 border-l border-border">
           <div className="container-fluid py-5">{children}</div>
+
           <BlocksSuggestion />
         </main>
       </div>

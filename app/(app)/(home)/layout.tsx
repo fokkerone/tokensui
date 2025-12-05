@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'toui - UI Components & Animated Effects',
+  title: 'Token UI Components & Animated Effects',
   description:
-    'Open-source collection of UI components and animated effects built with React, Typescript, Tailwind CSS, and Motion. Pairs beautifully with shadcn/ui.',
+    'AI first UI React Tailwind DTCG Design Token components and Blocks built with React, Typescript, Tailwind CSS, and Motion for modern web applications.',
   openGraph: {
     title: 'toui - UI Components & Animated Effects',
     description:

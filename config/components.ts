@@ -623,7 +623,7 @@ export const componentsConfig: DocsConfig = {
     {
       title: 'X',
       icon: 'twitter',
-      href: 'https://x.com/reui_io',
+      href: 'https://x.com/toui_dev',
     },
   ],
 };

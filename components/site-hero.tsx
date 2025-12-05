@@ -87,15 +87,15 @@ export default function SiteHero() {
           <MovingLabel
             borderRadius="1.75rem"
             duration={3500}
-            className="bg-card border border-mono/15 text-foreground inline-flex items-center gap-2.5 cursor-pointer text-xl"
-            containerClassName="w-[245px]"
+            className="bg-card border border-mono/15 text-foreground inline-flex items-center gap-2.5 cursor-pointer"
+            containerClassName="w-[245px] "
             onClick={handleMovingLabelClick}
           >
             Weekly new feature releases
             <Zap className="size-4 text-muted-foreground" />
           </MovingLabel>
 
-          <h1 className="text-[5rem] font-bold text-center">UI/DX Quantum Leap</h1>
+          <h1 className="text-2xl lg:text-[5rem] font-bold text-center">UI/DX Quantum Leap</h1>
           <h2 className="text-center text-3xl max-w-3xl">with nextgen DesignToken React UI library</h2>
 
           <div className="flex items-center gap-3.5 mb-4">

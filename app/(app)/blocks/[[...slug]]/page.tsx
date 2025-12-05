@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const secondaryCategory = getSecondaryCategory(primaryCategory, pathname);
 
   const title = secondaryCategory
-    ? `${secondaryCategory.title} - Blocks | toui.de`
+    ? `Token UI - Blocks - ${secondaryCategory.title}`
     : primaryCategory
-      ? `${primaryCategory.title} - Blocks | toui.dev`
-      : 'Blocks - toui';
+      ? `${primaryCategory.title} - Blocks`
+      : 'Token UI Blocks';
 
   const description =
     secondaryCategory?.description ||
