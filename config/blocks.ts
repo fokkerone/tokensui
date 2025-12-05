@@ -8,7 +8,7 @@ export const blocksConfig: BlocksConfig = [
     default: true,
     sub: [
       {
-        title: 'Token UI - Statistic Cards',
+        title: 'Statistic Cards',
         slug: 'statistic-cards',
         description: `
           15 free modern statistic cards designed to present key metrics and insights. 
@@ -501,6 +501,8 @@ export const blocksConfig: BlocksConfig = [
             slug: 'hero-1',
             previewHeight: 500,
             published: true,
+            new: false,
+            paid: true,
           },
         ],
       },

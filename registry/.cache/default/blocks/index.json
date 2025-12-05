@@ -4,7 +4,7 @@
       "cacheKey": "cards.statistic-cards",
       "primary": "cards",
       "secondary": "statistic-cards",
-      "title": "Statistic Cards",
+      "title": "Token UI - Statistic Cards",
       "totalBlocks": 15,
       "filename": "cards.statistic-cards.json"
     },
@@ -43,5 +43,5 @@
   ],
   "totalCategories": 5,
   "totalBlocks": 31,
-  "generatedAt": "2025-12-02T18:12:41.646Z"
+  "generatedAt": "2025-12-05T16:53:30.677Z"
 }

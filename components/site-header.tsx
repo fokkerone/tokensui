@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
@@ -13,31 +13,16 @@ import { ThemeToggleButton, useThemeTransition } from './ui/theme-toggle';
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const { setTheme } = useTheme();
-  const [settings, updateSettings] = useState({ mode: 'light', theme: { styles: { light: {}, dark: {} } } });
+  const { setTheme, theme } = useTheme();
   const { startTransition } = useThemeTransition();
 
   const handleThemeToggle = useCallback(() => {
-    const newMode: string = settings.mode === 'dark' ? 'light' : 'dark';
+    const newMode = theme === 'dark' ? 'light' : 'dark';
 
     startTransition(() => {
-      const updatedSettings = {
-        ...settings,
-        mode: newMode,
-        theme: {
-          ...settings.theme,
-          styles: {
-            light: settings.theme.styles?.light || {},
-            dark: settings.theme.styles?.dark || {},
-          },
-        },
-      };
-      updateSettings(updatedSettings);
       setTheme(newMode);
     });
-  }, [settings, updateSettings, setTheme, startTransition]);
-
-  const currentTheme = settings.mode === 'system' ? 'light' : (settings.mode as 'light' | 'dark');
+  }, [theme, setTheme, startTransition]);
 
   return (
     <header className="sticky top-0 z-50 w-full  bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60 dark:border-border">
@@ -62,7 +47,12 @@ export function SiteHeader() {
           </div>
 
           <nav className="flex items-center gap-1">
-            <ThemeToggleButton theme={currentTheme} onClick={handleThemeToggle} variant="polygon" start="center" />
+            <ThemeToggleButton
+              theme={theme as 'light' | 'dark'}
+              onClick={handleThemeToggle}
+              variant="polygon"
+              start="center"
+            />
           </nav>
         </div>
       </div>

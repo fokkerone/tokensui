@@ -397,7 +397,7 @@ function PreviewPanelView() {
   return (
     <div className={cn('relative -mr-3', view !== 'preview' && 'hidden', theme === 'dark' && 'dark')}>
       <div className="absolute inset-0 rounded-xl right-4 bg-muted/30 overflow-hidden">
-        <div className="absolute inset-0 rounded-xl [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] [background-size:16px_16px] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"></div>
+        <div className="absolute inset-0 rounded-xl bg-background [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] [background-size:16px_16px] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"></div>
       </div>
       <ResizablePanelGroup direction="horizontal" className="relative z-10 h-full">
         <ResizablePanel
@@ -444,30 +444,45 @@ function PreviewPanelCode() {
         {/* Code Viewer */}
         <div className="grow">
           <div className="flex items-center justify-between bg-card px-5 h-12 text-sm border-b border-border">
-            <div className="inline-flex gap-2.5 items-center">
-              <File className="size-4 opacity-60" />
-              {block.relativePath}
-            </div>
-            <Button
-              mode="icon"
-              size="sm"
-              variant="ghost"
-              className="size-8 -me-2.5"
-              onClick={() => {
-                if (block?.code) {
-                  copy(block.code);
-                  // Track the block code copy event
-                  if (block.name) {
-                    trackBlockCodeCopy(block.name, block.path);
-                  }
-                }
-              }}
-            >
-              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-            </Button>
+            {block.paid && !block.code ? (
+              <div className="inline-flex gap-2.5 items-center">
+                <File className="size-4 opacity-60" />
+                ■■■■■■■■■■■.tsx
+              </div>
+            ) : (
+              <>
+                <div className="inline-flex gap-2.5 items-center">
+                  <File className="size-4 opacity-60" />
+                  {block.relativePath}
+                </div>
+                <Button
+                  mode="icon"
+                  size="sm"
+                  variant="ghost"
+                  className="size-8 -me-2.5"
+                  onClick={() => {
+                    if (block?.code) {
+                      copy(block.code);
+                      // Track the block code copy event
+                      if (block.name) {
+                        trackBlockCodeCopy(block.name, block.path);
+                      }
+                    }
+                  }}
+                >
+                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                </Button>
+              </>
+            )}
           </div>
           <div className="grid h-full">
-            <PreviewPanelCodeHighlight block={block} />
+            {block.paid && !block.code ? (
+              <div className="flex items-center justify-center h-full text-sm text-muted-foreground">
+                YOU NEEED TO Login{' '}
+              </div>
+            ) : (
+              <PreviewPanelCodeHighlight block={block} />
+            )}
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { DM_Serif_Display, Inter } from 'next/font/google';
 import { cn } from '@/registry/default/lib/utils';
 import { Toaster } from '@/registry/default/ui/sonner';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
@@ -10,7 +10,8 @@ import { Analytics } from '@/components/analytics';
 import { ThemeProvider } from '@/components/providers';
 import '@/styles/globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const dmSerif = DM_Serif_Display({ subsets: ['latin'], weight: ['400'], variable: '--font-serif' });
 
 export const metadata: Metadata = {
   title: {
@@ -145,7 +146,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body
-        className={cn('min-h-screen text-base text-foreground bg-background antialiased font-sans', inter.className)}
+        className={cn(
+          'min-h-screen text-base text-foreground bg-background antialiased font-sans',
+          inter.variable,
+          dmSerif.variable,
+        )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
           <QueryProvider>
