@@ -112,8 +112,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ['https://reui.io/brand/logo-default.png'],
-    creator: '@reui_io',
+    images: ['https://toui.dev/brand/logo-default.png'],
+    creator: '@toui_dev',
   },
   icons: {
     icon: '/favicon.ico',

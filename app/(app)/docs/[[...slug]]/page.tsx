@@ -71,8 +71,8 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
       card: 'summary_large_image',
       title: doc.title,
       description: doc.description,
-      images: ['https://reui.io/brand/logo-default.png'],
-      creator: '@reui_io',
+      images: ['https://toui.dev/brand/logo-default.png'],
+      creator: '@toui_dev',
     },
   };
 }
