@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { ZoomHoverImage } from '@merch/components';
 import {
   animate,
   AnimatePresence,
@@ -141,7 +140,7 @@ export function InfiniteBoxCarousel({ children }: { children?: React.ReactNode }
     <div className={containerClass} ref={ref}>
       {boxes.map((x, i) => {
         const { start, _m } = x;
-        return <Box x={x} _m={_m} key={i} id={i} />;
+        return <Box _m={_m} key={i} id={i} />;
       })}
     </div>
   );
@@ -215,7 +214,7 @@ const people = [
   },
 ];
 
-const BoxContent = ({ id }) => {
+const BoxContent = ({ id }: { id: number }) => {
   return (
     <div className="p-5 h-full bg-emerald-200">
       <h1 className="text-3xl text-gray-800 block">{people[Number(id)].name}</h1>
@@ -223,7 +222,7 @@ const BoxContent = ({ id }) => {
     </div>
   );
 };
-const Box = ({ children, x, id, _m }: { children: React.ReactNode; x: MotionValue }) => {
+const Box = ({ children, id, _m }: { children?: React.ReactNode; id: number; _m: MotionValue<number> }) => {
   return (
     <motion.div
       key={id}

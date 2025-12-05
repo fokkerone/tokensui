@@ -19,12 +19,12 @@ export default function Page() {
       </div>
 
       <Container>
-        <div className="flex w-1/2 h-60">
+        <div className="flex w-1/2 xl:w-5/12 h-60">
           <TypingText
-            text="Google Antigravity Blinking CursorGoogle Antigravity is our agentic development platform, evolving the IDE into the agent-first era."
+            text="Token UI evolving the UI/DX for the Agentic first era"
             className="text-4xl font-stretch-110%"
             speed={40}
-            showCursor={true}
+            showCursor={false}
             cursorClassName="_"
           />
         </div>

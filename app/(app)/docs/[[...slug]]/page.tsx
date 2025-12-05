@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   }
 
   return {
-    title: doc.title,
+    title: `Token UI - Documentation - ${doc.title}`,
     description: doc.description,
     openGraph: {
       title: doc.title,

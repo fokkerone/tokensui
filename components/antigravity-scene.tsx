@@ -18,7 +18,7 @@ function createApertureLogoParticles(particleCount: number) {
   const centerY = size / 2;
 
   // SVG path data - exact logo shape
-  const svgString = `<svg width="776" height="791" viewBox="0 0 776 791" xmlns="http://www.w3.org/2000/svg">
+  const svgString = `<svg width="100%" height="100%" viewBox="0 0 776 791" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(-1309, -375)">
       
     </g>

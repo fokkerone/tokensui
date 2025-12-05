@@ -37,13 +37,13 @@ export const sitemapConfig: SitemapConfig = {
       title: 'Getting Started',
       items: [
         {
-          title: 'Introduction',
+          title: 'Token UI Docs Introduction',
           href: '/docs',
           description:
             'Get started with ReUI - a comprehensive React component library designed for modern web applications.',
         },
         {
-          title: 'Installation',
+          title: 'Token UI Installation',
           href: '/docs/installation',
           description: 'Step-by-step guide to install ReUI in your React project with npm, yarn, or pnpm.',
         },
