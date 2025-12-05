@@ -91,7 +91,7 @@ export function InfiniteBoxCarousel({ children }: { children?: React.ReactNode }
   ).current;
 
   useEffect(() => {
-    console.log('Mainthreat', boxes, BoxWidth, boxAmount, 'Interval', BoxInterval);
+    // console.log('Mainthreat', boxes, BoxWidth, boxAmount, 'Interval', BoxInterval);
     let intervalID: null | ReturnType<typeof setInterval> = null;
 
     if (BoxInterval) {
@@ -227,7 +227,7 @@ const Box = ({ children, id, _m }: { children?: React.ReactNode; id: number; _m:
     <motion.div
       key={id}
       style={{ x: _m }}
-      className="overflow-hidden basis-[calc(100%/1.5)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/2.5)] shrink-0 aspect-6/4 bg-slate-700 rounded-2xl"
+      className="overflow-hidden basis-[calc(100%/1.5)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/2.5)] shrink-0 aspect-6/4 bg-neutral-700 rounded-2xl"
     >
       {/* <BoxContent id={Number(id)} key={`id-${id}`} /> */}
     </motion.div>

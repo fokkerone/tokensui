@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-//import { BreadcrumbPage } from '@/registry/default/ui/base-breadcrumb';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -61,6 +60,7 @@ export default async function Page({ params }: PageProps) {
   const secondaryCategory = getSecondaryCategory(primaryCategory, pathname);
   const blocks = await getBlocks(primaryCategory, secondaryCategory);
 
+  console.log('Rendering blocks page for:', blocks);
   return (
     <div className="container-fixed space-y-6 px-0 lg:px-6 transition-all duration-300">
       <div className="flex items-center gap-1.5 min-h-8 mb-2.5">

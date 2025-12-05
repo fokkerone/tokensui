@@ -7,7 +7,10 @@ const blocksConfigPath = path.resolve('./config/blocks.ts');
 const sourceBasePath = path.resolve('./registry/default/blocks');
 const cacheBasePath = path.join(process.cwd(), 'registry', '.cache', 'default', 'blocks');
 
+console.log('Cache base path:', cacheBasePath);
+
 async function ensureCacheDir(dir) {
+  console.log('Ensuring cache directory exists:', dir);
   await fs.mkdir(dir, { recursive: true });
 }
 
@@ -16,6 +19,8 @@ async function loadBlocksConfig() {
     // For now, we'll parse the TypeScript file manually
     // In production, you might want to use a proper TypeScript loader
     const configContent = await fs.readFile(blocksConfigPath, 'utf-8');
+
+    console.log('Loaded blocks config content', configContent);
 
     // Extract the config object (this is a simplified approach)
     // In production, consider using a proper TypeScript parser
@@ -41,6 +46,7 @@ function getAllSecondaryCategories(config) {
       for (const secondary of primary.sub) {
         // Include all secondary categories regardless of blocks content
         // blocks is now array of BlockItem objects
+
         categories.push({
           primary: primary.slug,
           secondary: secondary.slug,
@@ -61,6 +67,7 @@ async function getBlockFilesInCategory(primary, secondary) {
     console.log(`     Checking directory: ${categoryPath}`);
 
     const entries = await fs.readdir(categoryPath, { withFileTypes: true });
+
     const blockFiles = entries
       .filter((entry) => entry.isFile() && (entry.name.endsWith('.tsx') || entry.name.endsWith('.ts')))
       .map((entry) => ({
@@ -69,7 +76,7 @@ async function getBlockFilesInCategory(primary, secondary) {
         fullPath: path.join(categoryPath, entry.name),
       }));
 
-    console.log(`     Found ${blockFiles.length} block files: ${blockFiles.map((f) => f.filename).join(', ')}`);
+    // console.log(`     Found ${blockFiles.length} block files: ${blockFiles.map((f) => f.filename).join(', ')}`);
     return blockFiles;
   } catch {
     // Try alternative directory names (handle plural/singular mismatches)
@@ -109,7 +116,7 @@ async function getBlockFilesInCategory(primary, secondary) {
 async function processBlockFile(blockFile, blockItem) {
   try {
     const code = await fs.readFile(blockFile.fullPath, 'utf-8');
-
+    console;
     // Generate syntax highlighted code
     const highlightedCode = await codeToHtml(code, {
       lang: 'tsx',
@@ -130,8 +137,9 @@ async function processBlockFile(blockFile, blockItem) {
       slug: blockItem.slug,
       name: blockItem.name || blockName,
       filename: blockFile.filename,
-      code,
-      highlightedCode,
+      code: blockItem.paid ? null : code,
+      paid: blockItem.paid ?? false,
+      highlightedCode: blockItem.paid ? null : highlightedCode,
       path: blockItem.path || blockFile.relativePath.replace(/\.(tsx|ts)$/, ''), // Use relativePath without extension if no path in config
       published: blockItem.published ?? true,
       new: blockItem.new ?? false,
@@ -158,8 +166,6 @@ async function processCategory(category) {
       console.log(`     Processing ${category.blockItems.length} block items...`);
 
       for (const blockItem of category.blockItems) {
-        console.log(`     Looking for block: ${blockItem.slug}`);
-
         // Find the corresponding block file
         // Look for files that match the block slug
         const matchingFile = blockFiles.find((file) => {
@@ -174,6 +180,8 @@ async function processCategory(category) {
           }
           return matches;
         });
+
+        console.log('     Looking for block item:', blockItem);
 
         if (matchingFile) {
           console.log(`     Processing block file: ${matchingFile.filename}`);
@@ -269,8 +277,9 @@ async function generateBlockCaches() {
     await ensureCacheDir(cacheBasePath);
 
     // Load blocks configuration
-    console.log('📖 Loading blocks configuration...');
+
     const blocksConfig = await loadBlocksConfig();
+    console.log('📖 Loading blocks configuration...');
     const secondaryCategories = getAllSecondaryCategories(blocksConfig);
     console.log(`   Found ${secondaryCategories.length} secondary categories`);
     console.log('');
@@ -284,6 +293,7 @@ async function generateBlockCaches() {
         processedCategories.push(result);
       }
     }
+
     console.log('');
 
     // Generate category cache files (only for categories with blocks)
@@ -297,6 +307,7 @@ async function generateBlockCaches() {
 
     for (const category of categoriesWithBlocks) {
       const result = await generateCategoryCache(category);
+
       if (result) {
         categoryCaches.push(result);
       }

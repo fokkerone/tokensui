@@ -77,14 +77,15 @@ export function MobileNav() {
       </Drawer>
 
       <Link href="/" className="flex items-center gap-2">
-        <Image src="/brand/logo-icon-light.svg" alt={siteConfig.name} width={30} height={30} className="dark:hidden" />
+        {/* <Image src="/brand/logo-icon-light.svg" alt={siteConfig.name} width={30} height={30} className="dark:hidden" />
         <Image
           src="/brand/logo-icon-dark.svg"
           alt={siteConfig.name}
           width={30}
           height={30}
           className="hidden dark:inline-block"
-        />
+        /> */}
+        TO/UI
       </Link>
     </div>
   );

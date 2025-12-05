@@ -47,6 +47,7 @@ export interface BlockSecondaryCategory {
   title: string;
   slug: string;
   new?: boolean;
+  paid?: boolean;
   default?: boolean;
   published?: boolean;
   description?: string;
@@ -59,6 +60,7 @@ export interface BlockItem {
   path?: string;
   relativePath?: string;
   published: boolean;
+  paid?: boolean;
   new?: boolean;
   previewHeight?: number;
   name?: string;
