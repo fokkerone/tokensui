@@ -91,7 +91,19 @@ export default async function Page({ params }: PageProps) {
 
       <div className="space-y-8 lg:space-y-16">
         {blocks && blocks.length > 0 ? (
-          blocks.map((block, index) => <BlockPreview key={block.slug || index} block={block} />)
+          blocks.map((block, index) => (
+            <div key={block.slug || index} className="space-y-4">
+              {primaryCategory && secondaryCategory && (
+                <Link
+                  href={`/blocks/${primaryCategory.slug}/${secondaryCategory.slug}/${block.slug}`}
+                  className="inline-flex items-center gap-2 text-lg font-semibold hover:underline"
+                >
+                  {block.name || block.slug}
+                </Link>
+              )}
+              <BlockPreview block={block} />
+            </div>
+          ))
         ) : (
           <div className="text-center py-8">
             <p className="text-sm text-muted-foreground">No blocks found in this category.</p>
