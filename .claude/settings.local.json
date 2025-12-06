@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open \"http://localhost:3333/blocks/charts/line-charts\")",
+      "Bash(open \"http://localhost:3333/blocks/charts\")",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill -9)",
+      "Bash(open \"http://localhost:3333/blocks/charts/line-charts/line-chart-1\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

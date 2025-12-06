@@ -35,6 +35,76 @@ export function getSecondaryCategory(
   return null;
 }
 
+/**
+ * Get a single block by category and slug
+ * Searches through all secondary categories of the primary category to find the block
+ */
+export async function getBlockBySlug(categorySlug: string, blockSlug: string): Promise<BlockItem | null> {
+  // Find the primary category
+  const primaryCategory = blocksConfig.find((cat) => cat.slug === categorySlug);
+
+  if (!primaryCategory || !primaryCategory.sub) return null;
+
+  // Search through all published secondary categories for the block
+  for (const secondaryCategory of primaryCategory.sub) {
+    if (!secondaryCategory.published) continue;
+
+    const blocks = await getBlocks(primaryCategory, secondaryCategory);
+    const block = blocks.find((b) => b.slug === blockSlug);
+
+    if (block) {
+      return block;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Get previous and next blocks in the same subcategory
+ */
+export async function getAdjacentBlocks(
+  categorySlug: string,
+  subcategorySlug: string,
+  currentBlockSlug: string,
+): Promise<{ prev: BlockItem | null; next: BlockItem | null }> {
+  const primaryCategory = blocksConfig.find((cat) => cat.slug === categorySlug);
+  const secondaryCategory = primaryCategory?.sub?.find((sub) => sub.slug === subcategorySlug);
+
+  if (!primaryCategory || !secondaryCategory) {
+    return { prev: null, next: null };
+  }
+
+  const blocks = await getBlocks(primaryCategory, secondaryCategory);
+  const currentIndex = blocks.findIndex((b) => b.slug === currentBlockSlug);
+
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
+
+  return {
+    prev: currentIndex > 0 ? blocks[currentIndex - 1] : null,
+    next: currentIndex < blocks.length - 1 ? blocks[currentIndex + 1] : null,
+  };
+}
+
+/**
+ * Get all published categories, subcategories, and blocks for navigation
+ */
+export function getAllNavigationItems() {
+  return blocksConfig
+    .filter((cat) => cat.published)
+    .map((primaryCategory) => ({
+      ...primaryCategory,
+      sub: primaryCategory.sub
+        ?.filter((sub) => sub.published)
+        .map((secondaryCategory) => ({
+          ...secondaryCategory,
+          blocks: secondaryCategory.blocks?.filter((block) => block.published) || [],
+        })),
+    }));
+}
+
 // Get blocks from cache - loads cached blocks JSON and returns as object
 export async function getBlocks(
   primaryCategory: BlockPrimaryCategory | null,

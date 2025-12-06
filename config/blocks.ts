@@ -206,7 +206,7 @@ export const blocksConfig: BlocksConfig = [
   {
     title: 'Charts',
     slug: 'charts',
-    published: false,
+    published: true,
     sub: [
       {
         title: 'Line Charts',
