@@ -79,7 +79,7 @@ const Pricing = () => {
                 </li>
               ))}
             </ul>
-            <Button variant={plan.isPopular ? 'default' : 'outline'} size="lg" className="w-full mt-6">
+            <Button variant={plan.isPopular ? 'primary' : 'outline'} size="lg" className="w-full mt-6">
               {plan.buttonText}
             </Button>
           </div>
